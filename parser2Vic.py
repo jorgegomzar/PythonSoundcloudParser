@@ -3,7 +3,7 @@ from colorama import *
 init(autoreset=True)
 
 print(Back.YELLOW + Fore.WHITE + '┌' + format('','─^78') + '┐')
-print( Back.YELLOW + Fore.WHITE + '│' + format('Bienvenid@ al Parser2.0'.title(),'^78') + '│')
+print(Back.YELLOW + Fore.WHITE + '│' + format('Bienvenid@ al Parser2.0'.title(),'^78') + '│')
 print(Back.YELLOW + Fore.WHITE + '└' + format('','─^78') + '┘')
 
 print(Fore.BLUE+'\n[+] Pega aquí la ruta de los archivos que quieres parsear: ')
@@ -43,7 +43,7 @@ for x in range(0, len(listado)):
 
 # Cambio de nombre a los ficheros por los nuevos nombres en nuevoListado
 for x in range(0, len(nuevoListado)):
-	print('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
+	os.system('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
 print(Fore.GREEN + '\n[+] Todos los ficheros han sido cambiados de nombre con éxito.')
 
 # Para proxima version eliminar FREE DOWNLOAD FREE DL Y OUT NOW
