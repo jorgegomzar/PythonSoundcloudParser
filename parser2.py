@@ -30,15 +30,19 @@ for item in listado:
 print(Fore.BLUE+'\n[+] Los nombres de los archivos serán cambiados por los que siguen respectivamente:')
 for x in range(0, len(listado)):
 	nuevaLinea = ''
+	pos = 0
 	linea = listado[x]
 	for i in linea:
 		if i == '_':
 			break
+		pos = pos + 1
 		nuevaLinea = (nuevaLinea + i)
+	artista = linea[pos+10:len(linea)]
+	nuevaLinea = (nuevaLinea + artista)
 	print('+', nuevaLinea)
 	nuevoListado.insert((x), nuevaLinea)
 
 # Cambio de nombre a los ficheros por los nuevos nombres en nuevoListado
 for x in range(0, len(nuevoListado)):
-	os.system('rename "' + ruta + '\\' + listado[x] + '" ' + nuevoListado[x])
+	os.system('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
 print(Fore.GREEN + '\n[+] Todos los ficheros han sido cambiados de nombre con éxito.')
