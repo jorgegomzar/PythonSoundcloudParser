@@ -55,6 +55,12 @@ for x in range(0, len(listado)):
 	nuevaLinea = (nuevaLinea + artista)
 	print('+', nuevaLinea)
 	nuevoListado.insert((x), nuevaLinea)
+	
+# Doy oportunidad a que el usuario cancele la operación si no está conforme con los nuevos cambios
+print(Fore.BLUE + '[+] ¿Quieres que se produzcan los cambios? (s/n)')
+if input().lower() == 'n':
+	print(Fore.RED + '[+] Los archivos mantendrán los nombres originales.')
+	exit()
 
 # Cambio de nombre a los ficheros por los nuevos nombres en nuevoListado
 for x in range(0, len(nuevoListado)):
