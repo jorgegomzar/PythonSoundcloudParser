@@ -63,5 +63,5 @@ if input().lower() == 'n':
 
 # Cambio de nombre a los ficheros por los nuevos nombres en nuevoListado
 for x in range(0, len(nuevoListado)):
-	print('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
+	os.system('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
 print(Fore.GREEN + '\n[+] Todos los ficheros han sido cambiados de nombre con éxito.')
