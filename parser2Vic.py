@@ -56,7 +56,7 @@ for x in range(0, len(listado)):
 	nuevoListado.insert((x), nuevaLinea)
 
 # Doy oportunidad a que el usuario cancele la operación si no está conforme con los nuevos cambios
-print(Fore.BLUE + '[+] ¿Quieres que se produzcan los cambios? (s/n)')
+print(Fore.BLUE + '[+] ¿Quieres que se produzcan los cambios? (s/n)(Por defecto sí)')
 if input().lower() == 'n':
 	print(Fore.RED + '[+] Los archivos mantendrán los nombres originales.')
 	exit()
