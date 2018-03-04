@@ -36,7 +36,21 @@ for x in range(0, len(listado)):
 		if i == '_':
 			break
 		pos = pos + 1
+		if i == '(':
+			posible = 1
+		if posible == 1:
+			spam = spam + i
 		nuevaLinea = (nuevaLinea + i)
+		if i == ')':
+			if 'FREE' in spam:
+				print(nuevaLinea)
+				nuevaLinea = nuevaLinea.strip(spam)
+				print(nuevaLinea)
+				print(spam)
+			if 'OUT NOW' in spam:
+				nuevaLinea = nuevaLinea.strip(spam)
+			posible = 0
+			spam = ''
 	artista = linea[pos+10:len(linea)]
 	nuevaLinea = (nuevaLinea + artista)
 	print('+', nuevaLinea)
