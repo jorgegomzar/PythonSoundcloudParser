@@ -65,3 +65,5 @@ if input().lower() == 'n':
 for x in range(0, len(nuevoListado)):
 	os.system('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
 print(Fore.GREEN + '\n[+] Todos los ficheros han sido cambiados de nombre con éxito.')
+
+# Este comentario es de prueba para comprobar el funcionamiento de los branch
