@@ -30,20 +30,38 @@ for item in listado:
 print(Fore.BLUE+'\n[+] Los nombres de los archivos serán cambiados por los que siguen respectivamente:')
 for x in range(0, len(listado)):
 	nuevaLinea = ''
-	pos = 0
+	posible = 0
+	spam = ''
 	linea = listado[x]
 	for i in linea:
 		if i == '_':
 			break
-		pos = pos + 1
+		if i == '(':
+			posible = 1
+		if posible == 1:
+			spam = spam + i
 		nuevaLinea = (nuevaLinea + i)
+		if i == ')':
+			if 'FREE' in spam:
+				print(nuevaLinea)
+				nuevaLinea = nuevaLinea.strip(spam)
+				print(nuevaLinea)
+				print(spam)
+			if 'OUT NOW' in spam:
+				nuevaLinea = nuevaLinea.strip(spam)
+			posible = 0
+			spam = ''
 	nuevaLinea = (nuevaLinea + '.mp3')
 	print('+', nuevaLinea)
 	nuevoListado.insert((x), nuevaLinea)
 
+# Doy oportunidad a que el usuario cancele la operación si no está conforme con los nuevos cambios
+print(Fore.BLUE + '[+] ¿Quieres que se produzcan los cambios? (s/n)')
+if input().lower() == 'n':
+	print(Fore.RED + '[+] Los archivos mantendrán los nombres originales.')
+	exit()
+
 # Cambio de nombre a los ficheros por los nuevos nombres en nuevoListado
 for x in range(0, len(nuevoListado)):
-	os.system('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
+	print('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
 print(Fore.GREEN + '\n[+] Todos los ficheros han sido cambiados de nombre con éxito.')
-
-# Para proxima version eliminar FREE DOWNLOAD FREE DL Y OUT NOW
