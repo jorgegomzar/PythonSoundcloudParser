@@ -28,7 +28,7 @@ for item in listado:
 
 # Guardo en una nueva lista los nombres parseados	
 print(Fore.BLUE+'\n[+] Los nombres de los archivos serán cambiados por los que siguen respectivamente:')
-for x in range(0, len(listado)):
+for x in range(0, numero):
 	nuevaLinea = ''
 	posible = 0
 	spam = ''
@@ -43,10 +43,7 @@ for x in range(0, len(listado)):
 		nuevaLinea = (nuevaLinea + i)
 		if i == ')':
 			if 'FREE' in spam:
-				print(nuevaLinea)
 				nuevaLinea = nuevaLinea.strip(spam)
-				print(nuevaLinea)
-				print(spam)
 			if 'OUT NOW' in spam:
 				nuevaLinea = nuevaLinea.strip(spam)
 			posible = 0
@@ -65,5 +62,3 @@ if input().lower() == 'n':
 for x in range(0, len(nuevoListado)):
 	os.system('rename "' + ruta + '\\' + listado[x] + '" "' + nuevoListado[x] + '"')
 print(Fore.GREEN + '\n[+] Todos los ficheros han sido cambiados de nombre con éxito.')
-
-# Este comentario es de prueba para comprobar el funcionamiento de los branch
