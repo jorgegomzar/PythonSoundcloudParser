@@ -9,7 +9,7 @@ def listar(ruta, listado):
 	fin = False
 	os.system('dir /b "' + ruta + '" > archivos.txt')
 	archivo = open('archivos.txt', 'r')
-	while !fin:
+	while not fin:
 		linea = archivo.readline()
 		if linea == '':
 			fin = True
