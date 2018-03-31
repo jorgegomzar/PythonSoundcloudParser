@@ -13,7 +13,8 @@ def listar(ruta, listado):
 		linea = archivo.readline()
 		if linea == '':
 			fin = True
-		listado.append(linea.rstrip('\n'))
+		else:
+			listado.append(linea.rstrip('\n'))
 	archivo.close()
 	os.system('del archivos.txt')
 
