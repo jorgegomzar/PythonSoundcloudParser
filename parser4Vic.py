@@ -5,7 +5,7 @@ import os
 from colorama import *
 
 def listar(ruta, listado):
-	"""Exporta a un archivo los nombres de los ficheros en la ruta especifícada y los guarda línea a línea en una lista."""
+	"""Exporta a un archivo los nombres de los ficheros en la ruta especificada y los guarda línea a línea en una lista."""
 	fin = False
 	os.system('dir /b "' + ruta + '" > archivos.txt')
 	archivo = open('archivos.txt', 'r')
