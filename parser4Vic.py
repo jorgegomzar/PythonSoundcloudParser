@@ -37,9 +37,6 @@ def cambiarNombres(listado, nuevoListado):
 					nuevaLinea = nuevaLinea.strip(spam)
 				posible = 0
 				spam = ''
-		# Esta nueva parte del código evita duplicados de formato en el nombre
-		if '.mp3' not in nuevaLinea:
-			nuevaLinea = (nuevaLinea + '.mp3') 
 		print('+', nuevaLinea)
 		nuevoListado.append(nuevaLinea)
 
