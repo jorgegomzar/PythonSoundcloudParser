@@ -27,16 +27,21 @@ def cambiarNombres(listado, nuevoListado):
 		for i in item:
 			if i == '_':
 				break
-			if i == '(':
+			if i == '(' or i == '[':
 				posible = 1
 			if posible == 1:
 				spam = spam + i
 			nuevaLinea = (nuevaLinea + i)
-			if i == ')':
+			if i == ')' or i == ']':
 				if 'FREE' in spam.upper() or 'OUT NOW' in spam.upper():
 					nuevaLinea = nuevaLinea.strip(spam)
 				posible = 0
 				spam = ''
+	#########################################################################
+		# Estas dos nuevas lineas evitan duplicados de '.mp3' en el nombre
+		nuevaLinea = nuevaLinea.rstrip('.mp3')
+		nuevaLinea = nuevaLinea + '.mp3'
+	#########################################################################
 		print('+', nuevaLinea)
 		nuevoListado.append(nuevaLinea)
 
