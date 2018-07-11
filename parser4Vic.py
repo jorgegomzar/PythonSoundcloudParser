@@ -6,17 +6,24 @@ from colorama import *
 
 def listar(ruta, listado):
 	"""Exporta a un archivo los nombres de los ficheros en la ruta especificada y los guarda línea a línea en una lista."""
-	fin = False
-	os.system('dir /b "' + ruta + '" > archivos.txt')
-	archivo = open('archivos.txt', 'r')
-	while not fin:
-		linea = archivo.readline()
-		if linea == '':
-			fin = True
-		else:
-			listado.append(linea.rstrip('\n'))
-	archivo.close()
-	os.system('del archivos.txt')
+	# fin = False
+	# os.system('dir /b "' + ruta + '" > archivos.txt')
+	# archivo = open('archivos.txt', 'r')
+	# while not fin:
+	# 	linea = archivo.readline()
+	# 	if linea == '':
+	# 		fin = True
+	# 	else:
+	# 		listado.append(linea.rstrip('\n'))
+	# archivo.close()
+	# os.system('del archivos.txt')
+
+	# Mas simple:
+	allFiles = os.listdir(ruta)
+
+	for item in allFiles:
+		listado.append(item)
+
 
 def cambiarNombres(listado, nuevoListado):
 	"""Guarda en una nueva lista los nombres parseados"""
