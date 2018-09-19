@@ -1,29 +1,15 @@
 # parser4Vic.py
 # Version actualizada del parser2Vic.py
 
-import os
+import os, shutil
 from colorama import *
 
 def listar(ruta, listado):
 	"""Exporta a un archivo los nombres de los ficheros en la ruta especificada y los guarda línea a línea en una lista."""
-	# fin = False
-	# os.system('dir /b "' + ruta + '" > archivos.txt')
-	# archivo = open('archivos.txt', 'r')
-	# while not fin:
-	# 	linea = archivo.readline()
-	# 	if linea == '':
-	# 		fin = True
-	# 	else:
-	# 		listado.append(linea.rstrip('\n'))
-	# archivo.close()
-	# os.system('del archivos.txt')
-
-	# Mas simple:
 	allFiles = os.listdir(ruta)
 
 	for item in allFiles:
 		listado.append(item)
-
 
 def cambiarNombres(listado, nuevoListado):
 	"""Guarda en una nueva lista los nombres parseados"""
@@ -79,8 +65,7 @@ print(Fore.BLUE+'\n[+] Los nombres de los archivos serán cambiados por los que 
 cambiarNombres(listado, nuevoListado)
 
 continuar()
-x = 0
-for item in nuevoListado:
-	os.system('rename "' + ruta + '\\' + listado[x] + '" "' + item + '"')
-	x = x + 1
+for i, item in enumerate(nuevoListado, start=1):
+	# os.system('rename "' + ruta + '\\' + listado[x] + '" "' + item + '"')
+	shutil.move('ruta'+'\\'+listado[x], 'ruta'+'\\'+item) # Nuevo codigo experimental
 print(Fore.GREEN + '\n[+] Todos los ficheros han sido cambiados de nombre con éxito.')
