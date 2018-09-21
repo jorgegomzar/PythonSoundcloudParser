@@ -66,6 +66,7 @@ cambiarNombres(listado, nuevoListado)
 
 continuar()
 for i, item in enumerate(nuevoListado, start=1):
-	# os.system('rename "' + ruta + '\\' + listado[x] + '" "' + item + '"')
-	shutil.move('ruta'+'\\'+listado[x], 'ruta'+'\\'+item) # Nuevo codigo experimental
+	# os.system('rename "' + ruta + '\\' + listado[i] + '" "' + item + '"')
+	os.rename(ruta + '\\' + listado[i], ruta + '\\' + item)
+	# shutil.move('ruta'+'\\'+listado[i], ruta+'\\'+item) # Nuevo codigo experimental
 print(Fore.GREEN + '\n[+] Todos los ficheros han sido cambiados de nombre con éxito.')
