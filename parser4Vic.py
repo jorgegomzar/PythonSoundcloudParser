@@ -44,13 +44,14 @@ def cambiarNombres(listado, nuevoListado): # Nueva función experimental más co
 		linea = item.split(' - ')
 		posible = 0
 		contador = 0
-		garbage = ['_']
+		# garbage = ['_']		# Da problemas al aplicar rstrip
+		garbage = []
 		for i in linea[0]:
 			if posible == 1 and i.isdigit():
 				garbage.append(i)
 				contador = contador + 1
 			elif contador == 9:
-				linea[0] = linea[0].rstrip(''.join(garbage))
+				linea[0] = linea[0].rstrip(''.join(garbage)).rstrip('_')
 			elif i == '_':
 				posible = 1
 		nuevoListado.append(' - '.join(linea))
